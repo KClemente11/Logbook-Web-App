@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Logbook_Web_App.Data;
 using Logbook_Web_App.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Logbook_Web_App.Controllers
 {
@@ -56,6 +57,7 @@ namespace Logbook_Web_App.Controllers
         }
 
         // GET: Logs/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -64,6 +66,7 @@ namespace Logbook_Web_App.Controllers
         // POST: Logs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,LogTitle,LogDescription")] Log log)
@@ -96,6 +99,7 @@ namespace Logbook_Web_App.Controllers
         // POST: Logs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,LogTitle,LogDescription")] Log log)
@@ -129,6 +133,7 @@ namespace Logbook_Web_App.Controllers
         }
 
         // GET: Logs/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Log == null)
@@ -149,6 +154,7 @@ namespace Logbook_Web_App.Controllers
         // POST: Logs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Log == null)

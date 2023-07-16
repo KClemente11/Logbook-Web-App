@@ -1,6 +1,12 @@
 html {
   font-size: 14px;
 }
+@media screen and (min-width: 576px){
+    .navbar-brand {
+        padding: 0 1em;
+        border-right: 1px solid #FFFFFF;
+    }
+}
 
 @media (min-width: 768px) {
   html {
@@ -19,4 +25,31 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #ededf6
+}
+
+header, .navbar {
+    background-color: #009688;
+}
+
+.display-4 {
+    color: #82ced2;
+}
+
+.logs-title{
+    color: #82ced2
+}
+
+.search-button{
+    background-color: #6c757d
+}
+.back-anchor{
+    color: #6c757d;
+    text-decoration: none;
+}
+.back-anchor:hover{
+    color:#198754;
+}
+.navbar-toggler-icon, .navbar-toggler {
+    color: #FFF;
 }
